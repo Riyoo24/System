@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tower of Dove Music Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- Put your logo at logo.png (or change the path below) -->
+<link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#"><img class="logo" src="logo.png" alt="" width="34" height="34">Tower of Dove</a>
+  <nav class="tn" aria-label="Site">
+    <a href="#studios">Studios</a>
+    <a href="#equipment">Equipment</a>
+  </nav>
+  <div class="ta">
+    <a class="tl" href="login.html">Log in</a>
+    <a class="btn gold sm" href="register.html" style="margin:0">Register</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hi">
+      <div>
+        <h1>Book a room. Plug in. Play.</h1>
+        <p>Four rehearsal rooms and studio-owned gear to rent. No account needed to book, and you can log in any time to see your bookings.</p>
+        <div class="hero-btns">
+          <a class="btn gold lg" href="#studios">Book now</a>
+          <a class="btn ghost lg" href="#equipment">Rent equipment</a>
+        </div>
+      </div>
+      <div class="now">
+        <h3>Right now at the studio</h3>
+        <ul id="nowl"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick availability check -->
+  <form class="qb" id="qb">
+    <div><label for="qs">Studio</label><select id="qs"></select></div>
+    <div><label for="qd">Date</label><input id="qd" type="date" value="2026-10-10"></div>
+    <div>
+      <label for="qt">Start time</label>
+      <select id="qt">
+        <option>10:00 AM</option>
+        <option>12:00 PM</option>
+        <option selected>3:00 PM</option>
+        <option>6:00 PM</option>
+        <option>8:00 PM</option>
+      </select>
+    </div>
+    <button class="btn gold lg" type="submit">Check availability</button>
+  </form>
+  <section class="avail" id="avail" hidden aria-live="polite"></section>
+
+  <section class="sec" id="studios">
+    <h2>Our studios</h2>
+    <p class="sub">Pick a room, then choose a date and time.</p>
+    <div class="grid g4" id="ls"></div>
+  </section>
+
+  <section class="sec" id="equipment">
+    <h2>Equipment to rent</h2>
+    <p class="sub">Add gear to a studio booking, or rent it to take outside the studio.</p>
+    <div class="grid g4" id="le"></div>
+  </section>
+
+  <footer class="foot">Tower of Dove Music Studio. Bookings are confirmed after staff verify your payment (GCash or cash).</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
