@@ -11,26 +11,34 @@ const $ = s => document.querySelector(s);
 /* ---------- Data (replace with your backend later) ---------- */
 /* [code, description, hourly rate, status, color 1, color 2] */
 const S = [
-  ['A', 'Drum and full band room', 350, 'Available',   '#C92C3E', '#3D0C14'],
-  ['B', 'Vocal and acoustic booth', 250, 'Occupied',    '#C98512', '#33220A'],
-  ['C', 'Mid-size band room',       300, 'Available',   '#8E161F', '#1E0A0F'],
-  ['D', 'Production room',          280, 'Maintenance', '#4A4A55', '#16161A']
+  ['A', 'Drum and full band room', 350, 'Available', '#C92C3E', '#3D0C14', 'images/studio.jpg'],
+  ['B', 'Vocal and acoustic booth', 250, 'Occupied', '#C98512', '#33220A', 'images/studio.jpg'],
+  ['C', 'Mid-size band room', 300, 'Available', '#8E161F', '#1E0A0F', 'images/studio.jpg'],
+  ['D', 'Production room', 280, 'Maintenance', '#4A4A55', '#16161A', 'images/studio.jpg']
 ];
-
-const DS = (n, kit, vip, p) => ({ n, cat: 'Drums', a: p, o: p, s: 1, ad: 1, ou: 1, d: { kit, vip } });
+const DS = (n, kit, vip, p, img) => ({ n, cat: 'Drums', a: p, o: p, s: 1, ad: 1, ou: 1, img, d: { kit, vip } });
 
 /* n = name, cat = category, a = add-on price, o = outside price, s = available stock,
    ad = add-on offered, ou = outside offered, d = drum set details */
 const E = [
-  { n: 'Electric guitar',    cat: 'Guitars',    a: 100, o: 250, s: 4, ad: 1, ou: 1 },
-  { n: 'Guitar amplifier',   cat: 'Amplifiers', a: 150, o: 350, s: 4, ad: 1, ou: 1 },
-  DS('Set A Drum Set', 'RDX drum set', 0, 2700),
-  DS('Set B Drum Set', 'RDX drum set', 1, 3000),
-  DS('Set C Drum Set', 'Steely drum set (high-end model)', 0, 2500),
-  DS('Set D Drum Set', 'Steely drum set (high-end model)', 1, 2800),
-  { n: 'Drum kit add-ons',   cat: 'Drums',      a: 120, o: 0,   s: 2, ad: 1, ou: 0 },
-  { n: 'Keyboard',           cat: 'Keyboards',  a: 200, o: 500, s: 1, ad: 1, ou: 1 },
-  { n: 'Multi-effects pedal', cat: 'Effects',   a: 80,  o: 150, s: 3, ad: 1, ou: 1 }
+  { 
+  n: 'Electric guitar', 
+  cat: 'Guitars', 
+  a: 100, 
+  o: 250, 
+  s: 4, 
+  ad: 1, 
+  ou: 1, 
+img: 'images/electric guitar.jpg' 
+},
+  { n: 'Guitar amplifier',   cat: 'Amplifiers', a: 150, o: 350, s: 4, ad: 1, ou: 1,img: 'images/amplifier.jpg' },
+DS('Set A Drum Set', 'RDX drum set', 0, 2700, 'images/electric guitar.jpg'),
+  DS('Set B Drum Set', 'RDX drum set', 1, 3000, 'images/electric guitar.jpg'),
+  DS('Set C Drum Set', 'Steely drum set (high-end model)', 0, 2500, 'images/electric guitar.jpg'),
+  DS('Set D Drum Set', 'Steely drum set (high-end model)', 1, 2800, 'images/electric guitar.jpg'),
+  { n: 'Drum kit add-ons', cat: 'Drums', a: 120, o: 0, s: 2, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
+  { n: 'Keyboard', cat: 'Keyboards', a: 200, o: 500, s: 1, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
+  { n: 'Multi-effects pedal', cat: 'Effects', a: 80, o: 150, s: 3, ad: 1, ou: 1, img: 'images/electric guitar.jpg' }
 ];
 /* Optional per item: img (image URL), desc (short description) */
 
@@ -43,8 +51,9 @@ const fm  = n => '₱' + n.toLocaleString('en-US');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const isClosed = s => s[3] === 'Maintenance' || s[3] === 'Unavailable';
 
-const ph = s => `<div class="ph" style="background:linear-gradient(135deg,${s[4]},${s[5]})">${s[0]}</div>`;
-
+const ph = s => s[6] 
+  ? `<div class="ph" style="overflow:hidden;padding:0;"><img src="${esc(s[6])}" alt="Studio ${s[0]}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px;"></div>` 
+  : `<div class="ph" style="background:linear-gradient(135deg,${s[4]},${s[5]})">${s[0]}</div>`;
 const PHICON = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg>';
 const eqImg = e => e.img
   ? `<div class="eqimg has"><img src="${esc(e.img)}" alt="${esc(e.n)}"></div>`
