@@ -89,7 +89,7 @@
         <label style="margin-top:0">How will you use it?</label>
         <div class="seg" id="rm">
           <button type="button" class="on" data-m="addon">Add-on to my studio booking</button>
-          <button type="button" data-m="out">Outside rent</button>
+          <button type="button" class="m" data-m="out">Outside rent</button>
         </div>
         <p class="mut" id="rmh"></p>
         <div id="bundle-tag-wrap"></div>
@@ -102,11 +102,19 @@
         </div>
 
         <div id="fo" hidden>
-          <label for="pd">Pick-up date (at the studio)</label>
-          <input id="pd" type="date" value="2026-10-10">
-          <label for="rd">Return date</label>
-          <input id="rd" type="date" value="2026-10-11">
-          <label for="oc">Contact number</label>
+          <label for="pd">Pick-up date & time (at the studio)</label>
+          <div style="display:flex; gap:10px;">
+            <input id="pd" type="date" value="2026-10-10" style="flex:2;">
+            <input id="pt" type="time" value="10:00" style="flex:1;" aria-label="Pick-up time">
+          </div>
+
+          <label for="rd" style="margin-top:10px">Return date & time</label>
+          <div style="display:flex; gap:10px;">
+            <input id="rd" type="date" value="2026-10-11" style="flex:2;">
+            <input id="rt" type="time" value="22:00" style="flex:1;" aria-label="Return time">
+          </div>
+
+          <label for="oc" style="margin-top:10px">Contact number</label>
           <input id="oc" value="0917 123 4567">
           <label for="sm-link">Backup contact (optional)</label>
           <input id="sm-link" placeholder="Facebook/Messenger/Instagram link or handle">
