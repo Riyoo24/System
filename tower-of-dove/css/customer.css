@@ -1,0 +1,59 @@
+/* ===== Tower of Dove - customer page only (pages/customer.html) ===== */
+
+.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px}
+.pg{display:none}
+.pg.on{display:block}
+
+/* ----- Tab bar ----- */
+.cnav{background:var(--surface);border-bottom:1px solid var(--line);display:flex;gap:4px;padding:0 20px;overflow-x:auto}
+.cnav button{background:none;border:0;padding:14px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;color:var(--mut)}
+.cnav button:hover{color:var(--ink)}
+.cnav button.on{color:var(--ink);border-color:var(--accent);font-weight:600}
+
+/* ----- Layout ----- */
+.g2{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);align-items:start}
+.ge{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.sticky{position:sticky;top:12px}
+
+/* ----- Studio picker ----- */
+.pick{cursor:pointer;transition:border-color .15s}
+.pick.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.pick.off{opacity:.55;cursor:not-allowed}
+
+/* ----- Time slots ----- */
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.slots button{padding:7px 0;border:1px solid var(--field-bd);background:var(--surface);border-radius:8px;cursor:pointer;font-size:13px}
+.slots button:hover:not(:disabled){border-color:var(--line-strong)}
+.slots button.sel{background:var(--sel);color:var(--sel-fg);border-color:var(--sel)}
+.slots button:disabled{background:var(--dove);color:var(--mut);opacity:.6;text-decoration:line-through;cursor:not-allowed}
+
+/* ----- Booking summary ----- */
+.hold{background:var(--warn-bg);color:var(--hold-fg);border-radius:8px;padding:8px 12px;font-size:13px;margin-top:12px}
+.alert{background:var(--bad-bg);color:var(--bad-fg);border-radius:8px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.okmsg{background:var(--ok-bg);color:var(--ok);border-radius:8px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.tot{display:flex;justify-content:space-between;font-size:18px;font-weight:600;border-top:1px dashed var(--line);margin-top:14px;padding-top:12px}
+.list{padding:0}
+.list li{list-style:none;display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--dove)}
+
+/* ----- Segmented toggle (add-on / outside) ----- */
+.seg{display:flex;gap:4px;background:var(--dove);padding:3px;border-radius:10px;margin:4px 0 6px}
+.seg button{flex:1;border:0;background:none;padding:7px 8px;border-radius:8px;cursor:pointer;font-weight:600;color:var(--mut)}
+.seg button.on{background:var(--brand);color:#fff}
+.bundle-tag{background:var(--out-bg);color:var(--out-fg);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;margin-bottom:6px}
+
+/* ----- Equipment ----- */
+.qty{width:64px}
+.card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+
+/* ----- Tables ----- */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--mut);padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--dove);white-space:nowrap}
+
+@media(max-width:820px){
+ .g2{grid-template-columns:1fr}
+ .sticky{position:static}
+}
+
+.lk{background:none;border:0;color:var(--link);text-decoration:underline;cursor:pointer;font:inherit;font-size:12.5px;padding:0;margin-left:6px}

@@ -1,0 +1,24 @@
+/* ===== Tower of Dove - login / register page only (pages/login.html) ===== */
+
+.auth-wrap{min-height:calc(100vh - 56px);display:grid;place-items:center;padding:32px 20px;
+  background:radial-gradient(70% 90% at 50% 0%,#3A0914 0%,var(--black) 70%)}
+.auth{width:100%;max-width:420px;padding:26px 24px;box-shadow:0 10px 30px var(--shadow)}
+.logo-lg{display:block;width:72px;height:72px;border-radius:50%;margin:0 auto 14px;object-fit:cover}
+.auth h1{font-size:26px}
+
+/* Log in / Register switch */
+.tabs{display:flex;gap:6px;margin-bottom:16px;justify-content:center}
+.tabs button{padding:5px 16px;border-radius:99px;border:1px solid var(--field-bd);background:var(--surface);cursor:pointer;color:var(--mut)}
+.tabs button.on{background:var(--sel);color:var(--sel-fg);border-color:var(--sel)}
+
+/* Password field with show/hide button */
+.pw{position:relative}
+.pw input{padding-right:64px}
+.pw-toggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--link);cursor:pointer;font-size:13px;font-weight:600;padding:4px 8px}
+
+/* Messages */
+.alert{background:var(--bad-bg);color:var(--bad-fg);border-radius:8px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.hold{background:var(--warn-bg);color:var(--hold-fg);border-radius:8px;padding:8px 12px;font-size:13px;margin-top:12px}
+input[aria-invalid="true"]{border-color:var(--bad)}
+
+.guest{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
