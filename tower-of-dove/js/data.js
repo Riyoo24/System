@@ -1,6 +1,12 @@
 /* ===== Tower of Dove - shared data and helpers =====
    Loaded first on every page (before landing.js / customer.js).
-   Later this is the one file you swap for real backend calls. */
+   Connected to Supabase Backend. */
+
+/* ---------- Initialize Supabase Client Globally ---------- */
+const SUPABASE_URL = 'https://kpptbvfqxezucewnvdyp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtwcHRidmZxeGV6dWNld252ZHlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNDk4MDgsImV4cCI6MjEwNzYyNTgwOH0.S45EnHeLRxJ7wLxQbex-G_C42b3Dcc5ardP1-ZAcOJQ';
+const { createClient } = supabase;
+const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const $  = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -28,13 +34,13 @@ const DS = (n, kit, vip, p, img) => ({ n, cat: 'Drums', a: p, o: p, s: 1, ad: 1,
    ad = add-on offered, ou = outside offered, d = drum set details
    Optional per item: img (image URL), desc (short description) */
 const E = [
-  { n: 'Electric guitar',     cat: 'Guitars',    a: 100, o: 250, s: 4, ad: 1, ou: 1,img: 'images/electric guitar.jpg' },
+  { n: 'Electric guitar',     cat: 'Guitars',    a: 100, o: 250, s: 4, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
   { n: 'Guitar amplifier',    cat: 'Amplifiers', a: 150, o: 350, s: 4, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
-  DS('Set A Drum Set', 'RDX drum set', 0, 2700,'images/drums.jpg'),
-  DS('Set B Drum Set', 'RDX drum set', 1, 3000,'images/drums.jpg'),
-  DS('Set C Drum Set', 'Steely drum set (high-end model)', 0, 2500,'images/drums.jpg'),
-  DS('Set D Drum Set', 'Steely drum set (high-end model)', 1, 2800,'images/drums.jpg'),
-  { n: 'Drum kit add-ons',    cat: 'Drums',      a: 120, o: 0,   s: 2, ad: 1, ou: 1,img: 'images/electric guitar.jpg' },
+  DS('Set A Drum Set', 'RDX drum set', 0, 2700, 'images/drums.jpg'),
+  DS('Set B Drum Set', 'RDX drum set', 1, 3000, 'images/drums.jpg'),
+  DS('Set C Drum Set', 'Steely drum set (high-end model)', 0, 2500, 'images/drums.jpg'),
+  DS('Set D Drum Set', 'Steely drum set (high-end model)', 1, 2800, 'images/drums.jpg'),
+  { n: 'Drum kit add-ons',    cat: 'Drums',      a: 120, o: 0,   s: 2, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
   { n: 'Keyboard',            cat: 'Keyboards',  a: 200, o: 500, s: 1, ad: 1, ou: 1, img: 'images/electric guitar.jpg' },
   { n: 'Multi-effects pedal', cat: 'Effects',    a: 80,  o: 150, s: 3, ad: 1, ou: 1, img: 'images/electric guitar.jpg' }
 ];

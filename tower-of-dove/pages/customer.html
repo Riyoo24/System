@@ -84,7 +84,7 @@
     <div class="grid g2">
       <div class="grid ge" id="eq" style="align-items:start"></div>
 
-      <aside class="card sticky">
+      <form id="rf" class="card sticky">
         <h2>Rental summary</h2>
         <label style="margin-top:0">How will you use it?</label>
         <div class="seg" id="rm">
@@ -121,8 +121,8 @@
         </div>
 
         <div id="rmsg" hidden role="status"></div>
-        <button class="btn gold full" id="rq" type="button" disabled>Request rental</button>
-      </aside>
+        <button class="btn gold full" id="rq" type="submit">Request rental</button>
+      </form>
     </div>
   </section>
 
@@ -150,6 +150,7 @@
 
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/data.js"></script>
 <script src="../js/customer.js"></script>
 </body>
